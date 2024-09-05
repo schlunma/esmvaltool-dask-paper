@@ -1,0 +1,87 @@
+---
+documentation:
+  title: High-res evaluation
+  description: Simple evaluation of high-res model output.
+  authors:
+    - schlund_manuel
+
+preprocessors:
+  nh_land_mean_annual_cycle:
+    mask_landsea:
+      mask_out: sea
+    extract_region:
+      start_latitude: 30.0
+      end_latitude: 90.0
+      start_longitude: 0.0
+      end_longitude: 360.0
+    area_statistics:
+      operator: mean
+    monthly_statistics:
+      operator: mean
+    climate_statistics:
+      operator: mean
+      period: month
+
+  tropics_land_mean_annual_cycle:
+    mask_landsea:
+      mask_out: sea
+    extract_region:
+      start_latitude: -30.0
+      end_latitude: 30.0
+      start_longitude: 0.0
+      end_longitude: 360.0
+    area_statistics:
+      operator: mean
+    monthly_statistics:
+      operator: mean
+    climate_statistics:
+      operator: mean
+      period: month
+
+  sh_land_mean_annual_cycle:
+    mask_landsea:
+      mask_out: sea
+    extract_region:
+      start_latitude: -90.0
+      end_latitude: -30.0
+      start_longitude: 0.0
+      end_longitude: 360.0
+    area_statistics:
+      operator: mean
+    monthly_statistics:
+      operator: mean
+    climate_statistics:
+      operator: mean
+      period: month
+
+diagnostics:
+  annual_cycle:
+    variables:
+      tas_nh:
+        short_name: tas
+        mip: day
+        preprocessor: nh_land_mean_annual_cycle
+        alias: NH extratropical land
+      tas_tropics:
+        short_name: tas
+        mip: day
+        preprocessor: tropics_land_mean_annual_cycle
+        alias: Tropical land
+      tas_sh:
+        short_name: tas
+        mip: day
+        preprocessor: sh_land_mean_annual_cycle
+        alias: SH extratropical land
+    scripts:
+      plot:
+        script: monitor/multi_datasets.py
+        facet_used_for_labels: alias
+        plot_folder: '{plot_dir}'
+        plot_filename: '{plot_type}_{real_name}_{dataset}_{mip}'
+        plots:
+          annual_cycle:
+            pyplot_kwargs:
+              title: '{long_name} of {dataset} ({start_year}-{end_year})'
+
+datasets:
+  - {project: CMIP6, dataset: NICAM16-9S, exp: highresSST-present, ensemble: r1i1p1f1, grid: gr, timerange: 1950/1960}

@@ -1,0 +1,72 @@
+---
+documentation:
+  title: Benchmark preprocessors
+  description: Time preprocessors ran for multiple CMIP6 models
+  authors:
+    - schlund_manuel
+
+preprocessors:
+  area_statistics:
+    area_statistics:
+      operator: mean
+
+  climate_statistics:
+    climate_statistics:
+      operator: mean
+
+  regrid:
+    regrid:
+      scheme: linear
+      target_grid: 5x5
+
+  extract_levels:
+    extract_levels:
+      scheme: linear
+      levels: [95000, 85000, 75000, 50000, 30000]
+
+  amplitude:
+    amplitude:
+      coords: year
+
+diagnostics:
+  area_statistics:
+    variables:
+      ta:
+        preprocessor: area_statistics
+    scripts: null
+
+  climate_statistics:
+    variables:
+      ta:
+        preprocessor: climate_statistics
+    scripts: null
+
+  regrid:
+    variables:
+      ta:
+        preprocessor: regrid
+    scripts: null
+
+  extract_levels:
+    variables:
+      ta:
+        preprocessor: extract_levels
+    scripts: null
+
+  amplitude:
+    variables:
+      ta:
+        preprocessor: amplitude
+    scripts: null
+
+datasets:
+  - {project: CMIP6, exp: historical, mip: Amon, timerange: 1995/2014, dataset: AWI-CM-1-1-MR, ensemble: r1i1p1f1, grid: gn}
+  - {project: CMIP6, exp: historical, mip: Amon, timerange: 1995/2014, dataset: CAS-ESM2-0, ensemble: r1i1p1f1, grid: gn}
+  - {project: CMIP6, exp: historical, mip: Amon, timerange: 1995/2014, dataset: CESM2, ensemble: r1i1p1f1, grid: gn}
+  - {project: CMIP6, exp: historical, mip: Amon, timerange: 1995/2014, dataset: CMCC-ESM2, ensemble: r1i1p1f1, grid: gn}
+  - {project: CMIP6, exp: historical, mip: Amon, timerange: 1995/2014, dataset: HadGEM3-GC31-MM, ensemble: r1i1p1f3, grid: gn}
+  - {project: CMIP6, exp: historical, mip: Amon, timerange: 1995/2014, dataset: INM-CM5-0, ensemble: r1i1p1f1, grid: gr1}
+  - {project: CMIP6, exp: historical, mip: Amon, timerange: 1995/2014, dataset: MCM-UA-1-0, ensemble: r1i1p1f2, grid: gn}
+  - {project: CMIP6, exp: historical, mip: Amon, timerange: 1995/2014, dataset: MIROC-ES2H, ensemble: r1i1p4f2, grid: gn}
+  - {project: CMIP6, exp: historical, mip: Amon, timerange: 1995/2014, dataset: MPI-ESM1-2-HR, ensemble: r1i1p1f1, grid: gn}
+  - {project: CMIP6, exp: historical, mip: Amon, timerange: 1995/2014, dataset: UKESM1-0-LL, ensemble: r8i1p1f2, grid: gn}

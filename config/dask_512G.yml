@@ -1,0 +1,22 @@
+# To avoid having to wait for SLURM jobs to start, we start the cluster within
+# a notebook/Python REPL:
+
+# >>> cluster = SLURMCluster(
+#     queue='compute',
+#     account='bd1179',
+#     cores=128,
+#     memory='256GiB',
+#     processes=32,
+#     interface='ib0',
+#     local_directory='/scratch/b/b309141/dask-tmp',
+#     n_workers=64,
+#     walltime='08:00:00',
+# )
+# >>> print(cluster.scheduler_address)
+# tcp://10.128.8.74:42317
+
+# This can then be used within ESMValTool with the following Dask
+# configuration file:
+
+client:
+  address: tcp://10.128.8.74:42317
