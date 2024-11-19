@@ -11,8 +11,15 @@ datasets:
 preprocessors:
   test:
     area_statistics:
-      operator: sum
-      weights: false
+      operator: mean
+      weights: false  # with v2.11.1 this works fine, with main it doesn't work regardless of this setting
+    # climate_statistics:
+    #   operator: mean
+    #   # weights: false
+    # axis_statistics:
+    #   operator: mean
+    #   axis: X
+    #   # weights: false
 
 diagnostics:
   test:
