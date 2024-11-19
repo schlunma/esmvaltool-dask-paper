@@ -1,0 +1,24 @@
+---
+documentation:
+  title: test
+  description: test
+  authors:
+    - schlund_manuel
+
+datasets:
+  - {project: CMIP6, dataset: NICAM16-9S, exp: highresSST-present, ensemble: r1i1p1f1, grid: gr, timerange: 1950/1960}
+
+preprocessors:
+  test:
+    area_statistics:
+      operator: sum
+      weights: false
+
+diagnostics:
+  test:
+    variables:
+      tas:
+        mip: day
+        preprocessor: test
+    scripts:
+      null
