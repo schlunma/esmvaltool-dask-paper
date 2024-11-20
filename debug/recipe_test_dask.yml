@@ -12,7 +12,7 @@ preprocessors:
   test:
     area_statistics:
       operator: mean
-      weights: false  # with v2.11.1 this works fine, with main it doesn't work regardless of this setting
+      # weights: false  # with v2.11.1 this works fine, with main it doesn't work regardless of this setting
     # climate_statistics:
     #   operator: mean
     #   # weights: false
