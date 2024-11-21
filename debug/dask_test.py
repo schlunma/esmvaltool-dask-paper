@@ -3,6 +3,13 @@ import dask.array as da
 import xarray as xr
 import numpy as np
 from pathlib import Path
+from pprint import pprint
+from time import sleep
+
+
+print("Start script")
+sleep(5)
+print("Start script for real")
 
 
 # Real data
@@ -15,8 +22,7 @@ paths = [
 ]
 
 # Dummy data
-small_shape = (365, 1280, 2560)
-big_shape = (366, 1280, 2560)
+shape = (365, 1280, 2560)
 chunks = (10, -1, -1)
 out_dir = Path("/scratch/b/b309141/tmp")
 nc_paths = [
@@ -36,10 +42,6 @@ zarr_paths = [
 
 # print("Saving nc")
 # for path in nc_paths:
-#     if "2" in str(path):
-#         shape = big_shape
-#     else:
-#         shape = small_shape
 #     arr = xr.DataArray(
 #         da.random.random(shape, chunks=chunks),
 #         name="x",
@@ -51,10 +53,6 @@ zarr_paths = [
 
 # print("Saving zarr")
 # for path in zarr_paths:
-#     if "2" in str(path):
-#         shape = big_shape
-#     else:
-#         shape = small_shape
 #     arr = da.random.random(shape, chunks=chunks)
 #     da.to_zarr(arr, path)
 #     print("Saved", path)
@@ -62,33 +60,36 @@ zarr_paths = [
 
 
 # Actual test code
-# client = Client('tcp://127.0.0.1:35073')
-# print("Using client", client)
-# print()
+from dask_jobqueue import SLURMCluster
+cluster = SLURMCluster(queue="interactive", account="bd1179", cores=8, processes=2, n_workers=2, memory="8GB", interface="ib0", local_directory='/scratch/b/b309141/dask-tmp', walltime="00:30:00")
+client = Client(cluster.scheduler_address)
+# client = Client('tcp://127.0.0.1:37811')
+print("Using client", client)
+print()
 
 
 # good
-# arrs = [
-#     da.random.random(big_shape, chunks=chunks) if "2" in str(p) else
-#     da.random.random(small_shape, chunks=chunks) for p in zarr_paths
-# ]
+arrs = [da.random.random(shape, chunks=chunks) for _ in zarr_paths]
 
 # bad
 # arrs = [da.from_zarr(p) for p in zarr_paths]
 
-# good
+# bad
 # dss = [xr.open_dataset(p, chunks={"time": 10, "lat": -1, "lon": -1}) for p in nc_paths]
 # arrs = [ds.x.data for ds in dss]
 
 # bad
-dss = [xr.open_dataset(p, chunks={"time": 10, "lat": -1, "lon": -1}) for p in paths]
-arrs = [ds.tas.data for ds in dss]
+# dss = [xr.open_dataset(p, chunks={"time": 10, "lat": -1, "lon": -1}) for p in paths]
+# arrs = [ds.tas.data for ds in dss]
 
 
 arr = da.concatenate(arrs, axis=0)
 weights = da.ones_like(arr, chunks=arr.chunks)
 avg = da.sum(arr * weights, axis=(1, 2)) / da.sum(weights, axis=(1, 2))
+print("arrs")
+pprint(arrs)
 print("arr", arr)
 print("weights", weights)
 print("avg", avg)
+print(avg.dask)
 print(avg.compute())
