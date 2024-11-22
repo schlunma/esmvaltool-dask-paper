@@ -1,4 +1,5 @@
 from dask.distributed import Client
+from dask_jobqueue import SLURMCluster
 import dask.array as da
 import xarray as xr
 import numpy as np
@@ -60,12 +61,11 @@ zarr_paths = [
 
 
 # Actual test code
-from dask_jobqueue import SLURMCluster
-cluster = SLURMCluster(queue="interactive", account="bd1179", cores=8, processes=2, n_workers=2, memory="8GB", interface="ib0", local_directory='/scratch/b/b309141/dask-tmp', walltime="00:30:00")
-client = Client(cluster.scheduler_address)
-# client = Client('tcp://127.0.0.1:37811')
-print("Using client", client)
-print()
+# cluster = SLURMCluster(queue="interactive", account="bd1179", cores=8, processes=2, n_workers=2, memory="8GB", interface="ib0", local_directory='/scratch/b/b309141/dask-tmp', walltime="00:30:00")
+# client = Client(cluster.scheduler_address)
+# # client = Client('tcp://127.0.0.1:37811')
+# print("Using client", client)
+# print()
 
 
 # good

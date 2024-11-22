@@ -7,20 +7,35 @@ documentation:
 
 datasets:
   # - {project: CMIP6, dataset: NICAM16-9S, exp: highresSST-present, ensemble: r1i1p1f1, grid: gr, timerange: 1950/1960}
-  - {project: CMIP6, dataset: MPI-ESM1-2-XR, exp: hist-1950, ensemble: r1i1p1f1, grid: gn, timerange: 1950/2014}
+  # - {project: CMIP6, dataset: MPI-ESM1-2-XR, exp: hist-1950, ensemble: r1i1p1f1, grid: gn, timerange: 1950/2014}
+  - {project: CMIP6, dataset: FGOALS-f3-H, exp: highresSST-present, ensemble: r1i1p1f1, grid: gr, timerange: 1950/1960}
 
 preprocessors:
   test:
-    area_statistics:
+    mask_landsea:
+      mask_out: sea
+    # extract_region:
+    #   start_latitude: 30.0
+    #   end_latitude: 90.0
+    #   start_longitude: 0.0
+    #   end_longitude: 360.0
+    # area_statistics:
+    #   operator: mean
+    # monthly_statistics:
+    #   operator: mean
+    climate_statistics:
       operator: mean
-      # weights: false  # with v2.11.1 this works fine, with main it doesn't work regardless of this setting
+      weights: false
+      # period: month
+    # custom_order: true
+    # extract_levels:
+    #   levels: 90000
+    #   scheme: linear
+    #   coordinate: air_pressure
+    # zonal_statistics:
+    #   operator: mean
     # climate_statistics:
     #   operator: mean
-    #   # weights: false
-    # axis_statistics:
-    #   operator: mean
-    #   axis: X
-    #   # weights: false
 
 diagnostics:
   test:
@@ -28,5 +43,21 @@ diagnostics:
       tas:
         mip: day
         preprocessor: test
+      # ta:
+      #   mip: Amon
+      #   preprocessor: test
     scripts:
-      null
+      plot:
+        plot_folder: "{plot_dir}"
+        plot_filename: "{plot_type}_{exp}_{real_name}_{dataset}_{mip}"
+        script: monitor/multi_datasets.py
+        facet_used_for_labels: alias
+        group_variables_by: variable_group
+        plots:
+          zonal_mean_profile:
+            # pyplot_kwargs:
+            #   suptitle: "{title} ({{timerange}})"
+            plot_kwargs:
+              default:
+                cmap: plasma
+                levels: 12
