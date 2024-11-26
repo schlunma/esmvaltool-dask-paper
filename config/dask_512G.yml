@@ -1,6 +1,7 @@
 # To avoid having to wait for SLURM jobs to start, we start the cluster within
 # a notebook/Python REPL:
 
+# >>> from dask_jobqueue import SLURMCluster
 # >>> cluster = SLURMCluster(
 #     queue='compute',
 #     account='bd1179',
