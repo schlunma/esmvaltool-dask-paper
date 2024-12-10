@@ -21,6 +21,16 @@ these paths need to be adapted so that they to point to the files given in this
 repository. Dask configuration files need to be located at
 `~/.esmvaltool/dask.yml`.
 
+All recipes are run on a compute node on [DKRZ's
+Levante](https://docs.dkrz.de/doc/levante/) to avoid interference from
+processes run by other uses (which would be the case on a shared node). This
+ensures that all results are comparable. The following `salloc` has been used
+to reserve the resources:
+
+```bash
+salloc --x11 --account=<ACCOUNT_ID> --partition=compute --nodes=1 --mem=0 --time=08:00:00"
+```
+
 ## Contents
 
 ### Configuration files (`config/`)
@@ -52,6 +62,8 @@ paper.
 
 ### Figures and files to produce them (`figs/`)
 
+Contains figures and corresponding files to produce them.
+
 ### ESMValTool recipes (`recipes/`)
 
 [ESMValTool
@@ -59,3 +71,13 @@ recipes](https://docs.esmvaltool.org/projects/ESMValCore/en/v2.11.1/recipe/index
 used in the paper. Absolute paths to diagnostic scripts in the recipes need to
 be adapted so that the paths point to the diagnostic scripts given in this
 repository.
+
+- `recipe_section-3-1_multi-model-analysis_*.yml`: Reproduce multi-model
+  analysis presented in Section 3.1 of the paper.
+- `recipe_section-3-2_high-res-model-analysis_*.yml`: Reproduce high-resolution
+  model analysis presented in Section 3.2 of the paper.
+- `_recipe_section-3-3_single-preprocessors_*.yml`: Reproduce individual
+  preprocessor analysis presented in Section 3.3 of the paper.
+
+*Note*: Different recipes for the different ESMValTool versions exist to
+account for small API changes between ESMValTool v2.8.0 and v2.11.0.
