@@ -1,0 +1,30 @@
+abstract: <p>Supplementary material (including ESMValTool recipes) for reproducing
+  the analyses of the paper "Advanced climate model evaluation with ESMValTool v2.11.0
+  using parallel, out-of-core, and distributed computing".</p>
+authors:
+- affiliation: "Deutsches Zentrum f\xFCr Luft- und Raumfahrt (DLR), Institut f\xFC\
+    r Physik der Atmosph\xE4re, Oberpfaffenhofen, Germany"
+  family-names: Schlund
+  given-names: Manuel
+  orcid: 0000-0001-5251-0158
+- affiliation: Netherlands eScience Center (NLeSC), Amsterdam, the Netherlands
+  family-names: Andela
+  given-names: Bouwe
+  orcid: 0000-0001-9005-8940
+cff-version: 1.2.0
+date-released: '2024-12-10'
+doi: 10.5281/zenodo.14361734
+identifiers:
+- type: swh
+  value: swh:1:dir:0ace87c5788c10b7ee194e2e2748bdab912c7326;origin=https://doi.org/10.5281/zenodo.14361733;visit=swh:1:snp:441b6d202e44fa7558d146a1b599a7b6fbdf89fa;anchor=swh:1:rel:cb05acc751e0a01d7325c9d8a1b4a9707780d529;path=/
+keywords:
+- ESMValTool
+- Dask
+- Earth System Models
+- CMIP
+license:
+- apache-2.0
+title: Supplementary material for "Advanced climate model evaluation with ESMValTool
+  v2.11.0 using parallel, out-of-core, and distributed computing"
+type: software
+version: v1.0.0
