@@ -1,7 +1,7 @@
 ---
 documentation:
-  title: Benchmark preprocessors
-  description: Time preprocessors ran for multiple CMIP6 models
+  title: Benchmark Individual Preprocessors
+  description: Reproduce analysis of individual preprocessors as shown in Section 3.3 of Schlund et al. (2025).
   authors:
     - schlund_manuel
 

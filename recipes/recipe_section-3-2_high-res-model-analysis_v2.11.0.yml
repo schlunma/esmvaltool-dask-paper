@@ -1,7 +1,7 @@
 ---
 documentation:
-  title: High-res evaluation
-  description: Simple evaluation of high-res model output.
+  title: High-resolution Model Analysis Example
+  description: Reproduce high-resolution model analysis shown in Section 3.2 of Schlund et al. (2025).
   authors:
     - schlund_manuel
 

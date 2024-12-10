@@ -1,12 +1,11 @@
 ---
 documentation:
-  title: Easy IPCC
-  description: Reproduce part of IPCC AR6 figure 9.3a.
+  title: Multi-model Analysis Example
+  description: Reproduce multi-model analysis shown in Section 3.1 of Schlund et al. (2025).
   authors:
     - kalverla_peter
     - andela_bouwe
-  maintainer:
-    - andela_bouwe
+    - schlund_manuel
 
 preprocessors:
   easy_ipcc:
