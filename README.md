@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/852738129.svg)](https://doi.org/10.5281/zenodo.14361733)
+
 # esmvaltool-dask-paper
 
 Additional material to reproduce the results of Schlund et al. (2025). Results
