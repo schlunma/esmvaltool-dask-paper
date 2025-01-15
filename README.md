@@ -1,8 +1,10 @@
 [![DOI](https://zenodo.org/badge/852738129.svg)](https://doi.org/10.5281/zenodo.14361733)
+[![DOI](https://zenodo.org/badge/852738129.svg)](https://doi.org/10.5194/gmd-2024-236)
 
 # esmvaltool-dask-paper
 
-Additional material to reproduce the results of Schlund et al. (2025). Results
+Additional material to reproduce the results of
+[Schlund et al. (2025)](https://doi.org/10.5194/gmd-2024-236). Results
 are based on ESMValTool v2.8.0 and v2.11.0.
 
 ## Quick Start
