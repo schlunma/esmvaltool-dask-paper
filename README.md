@@ -1,5 +1,10 @@
-[![DOI](https://zenodo.org/badge/852738129.svg)](https://doi.org/10.5281/zenodo.14361733)
-[![DOI](https://zenodo.org/badge/DOI/10.5194/gmd-2024-236)](https://doi.org/10.5194/gmd-2024-236)
+[![DOI][zenodo-doi-shield]][zenodo-doi]
+[![DOI][paper-doi-shield]][paper-doi]
+
+[zenodo-doi]: https://doi.org/10.5281/zenodo.14361733
+[zenodo-doi-shield]: https://zenodo.org/badge/DOI/10.5281/zenodo.14361733.svg
+[paper-doi]: https://doi.org/10.5194/gmd-2024-236
+[paper-doi-shield]: https://zenodo.org/badge/DOI/10.5194/gmd-2024-236.svg
 
 # esmvaltool-dask-paper
 
