@@ -1,5 +1,5 @@
 [![DOI](https://zenodo.org/badge/852738129.svg)](https://doi.org/10.5281/zenodo.14361733)
-[![DOI](https://zenodo.org/badge/852738129.svg)](https://doi.org/10.5194/gmd-2024-236)
+[![DOI](https://zenodo.org/badge/DOI/10.5194/gmd-2024-236)](https://doi.org/10.5194/gmd-2024-236)
 
 # esmvaltool-dask-paper
 
