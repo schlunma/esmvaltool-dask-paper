@@ -24,16 +24,25 @@ esmvaltool run --config_file <path/to/config-user.yml> <path/to/recipe.yml>
 ```
 
 Recipes (`recipes/`) and configuration (`config/`) files are available in this
-repository. If absolute paths to diagnostic scripts are given in a recipe,
-these paths need to be adapted so that they to point to the files given in this
-repository. Dask configuration files need to be located at
-`~/.esmvaltool/dask.yml`.
+repository (configuration files are tailored towards running the recipes on
+[DKRZ's Levante](https://docs.dkrz.de/doc/levante/)). Output paths in the
+configuration file might need to be adapted. If absolute paths to diagnostic
+scripts are given in a recipe, these paths need to be adapted so that they to
+point to the files given in this repository. The Dask configuration files need
+to be renamed and put to `~/.esmvaltool/dask.yml` (one by one).
 
-All recipes have been run on a compute node on [DKRZ's
-Levante](https://docs.dkrz.de/doc/levante/) to avoid interference from
-processes run by other uses (which would be the case on a shared node). This
-ensures that all results are comparable. The following `salloc` command has
-been used to allocate the resources:
+To reproduce the results on another machine, automatic downloads of CMIP data
+can be enable in the configuration file, i.e.,
+
+```yml
+search_esgf: when_missing  # enable automatic downloads for CMIP data
+download_dir: ~/climate_data  # directory where downloaded data is stored
+```
+
+All recipes have been run on a compute node on Levante to avoid interference
+from processes run by other uses (which would be the case on a shared node).
+This ensures that all results are comparable. The following `salloc` command
+has been used to allocate the resources:
 
 ```bash
 salloc --x11 --account=<ACCOUNT_ID> --partition=compute --nodes=1 --mem=0 --time=08:00:00"
@@ -47,14 +56,16 @@ Contains the following files:
 
 - `config-user.yml`: ESMValTool [user configuration
   file](https://docs.esmvaltool.org/projects/ESMValCore/en/v2.11.1/quickstart/configure.html#user-configuration-file),
-  can be specified for an esmvaltool run via the command line argument
-  `--config_file`.
+  can be specified for an ESMValTool run via the command line argument
+  `--config_file`. Output paths might need to be adapted. The given
+  configuration can be used to run recipes on Levante. To use another machine,
+  automatic downloads of CMIP data can be enabled (see above).
 - `dask_*.yml`: ESMValTool [Dask configuration
   files](https://docs.esmvaltool.org/projects/ESMValCore/en/v2.11.1/quickstart/configure.html#dask-distributed-configuration)
-  for the different setups investigated in the paper. Must be put into
-  `~/.esmvaltool/dask.yml`. For the setup that uses 2 nodes, the scheduler
-  needs to be started outside of ESMValTool to avoid waiting until resources are
-  granted (see details in `dask_512G.yml`).
+  for the different setups investigated in the paper. Must be renamed and put
+  into `~/.esmvaltool/dask.yml` (one by one). For the setup that uses 2 nodes,
+  the scheduler needs to be started outside of ESMValTool to avoid waiting until
+  resources are granted (see details in `dask_512G.yml`).
 
 ### ESMValTool diagnostic scripts (`diag_scripts/`)
 
