@@ -58,8 +58,8 @@ Contains the following files:
   file](https://docs.esmvaltool.org/projects/ESMValCore/en/v2.11.1/quickstart/configure.html#user-configuration-file),
   can be specified for an ESMValTool run via the command line argument
   `--config_file`. Output paths might need to be adapted. The given
-  configuration can be used to run recipes on Levante. To use another machine,
-  automatic downloads of CMIP data can be enabled (see above).
+  configuration file can be used to run recipes on Levante. To use another
+  machine, automatic download of CMIP data can be enabled (see above).
 - `dask_*.yml`: ESMValTool [Dask configuration
   files](https://docs.esmvaltool.org/projects/ESMValCore/en/v2.11.1/quickstart/configure.html#dask-distributed-configuration)
   for the different setups investigated in the paper. Must be renamed and put
