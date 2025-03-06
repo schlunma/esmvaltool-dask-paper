@@ -6,7 +6,7 @@
 #     queue='compute',
 #     account='bd1179',
 #     cores=128,
-#     memory='256GiB',
+#     memory='256GB',
 #     processes=32,
 #     interface='ib0',
 #     local_directory='/scratch/b/b309141/dask-tmp',
