@@ -58,7 +58,7 @@ diagnostics:
         preprocessor: easy_ipcc
     scripts:
       Figure_9.3a:
-        script: ~/papers/my_papers/2024_ESMValTool6_SchlundEtAl/esmvaltool-dask-paper/diag_scripts/make_plot_v2.11.0.py
+        script: ~/esmvaltool-dask-paper/diag_scripts/make_plot_v2.11.0.py
 
 datasets:
   - {dataset: ACCESS-CM2, ensemble: 'r(1:10)i1p1f1', grid: gn}
