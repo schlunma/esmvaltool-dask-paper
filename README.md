@@ -39,10 +39,10 @@ search_esgf: when_missing  # enable automatic downloads for CMIP data
 download_dir: ~/climate_data  # directory where downloaded data is stored
 ```
 
-All recipes have been run on a compute node on Levante to avoid interference
-from processes run by other uses (which would be the case on a shared node).
-This ensures that all results are comparable. The following `salloc` command
-has been used to allocate the resources:
+All setups run on Levante use a compute node to avoid interference from
+processes run by other uses (which would be the case on a shared node).  This
+ensures that all results are comparable. The following `salloc` command has
+been used to allocate the resources:
 
 ```bash
 salloc --x11 --account=<ACCOUNT_ID> --partition=compute --nodes=1 --mem=0 --time=08:00:00"
@@ -65,7 +65,7 @@ Contains the following files:
   for the different setups investigated in the paper. Must be renamed and put
   into `~/.esmvaltool/dask.yml` (one by one). For the setup that uses 2 nodes,
   the scheduler needs to be started outside of ESMValTool to avoid waiting until
-  resources are granted (see details in `dask_512G.yml`).
+  resources are granted (see details in `dask_hpc_2_nodes.yml`).
 
 ### ESMValTool diagnostic scripts (`diag_scripts/`)
 

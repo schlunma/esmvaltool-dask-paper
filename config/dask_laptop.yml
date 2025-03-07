@@ -1,5 +1,5 @@
 cluster:
   type: distributed.LocalCluster
   n_workers: 2
-  threads_per_worker: 4
-  memory_limit: 8 GB
+  threads_per_worker: 2
+  memory_limit: 4 GB
