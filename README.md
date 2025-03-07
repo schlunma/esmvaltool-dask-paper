@@ -104,3 +104,8 @@ repository.
 
 *Note*: Different recipes for the different ESMValTool versions exist to
 account for small API changes between ESMValTool v2.8.0 and v2.11.0.
+
+### Scripts (`scripts/`)
+
+Contains other scripts used to reproduce the results of the paper, e.g., to
+extract ESMValTool runtimes from log files.
