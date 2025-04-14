@@ -5,8 +5,7 @@ abstract: <p>Supplementary material (including ESMValTool recipes) for reproduci
   <p>See README.md for more information on the contents of this repository and how
   to use them.</p>
 authors:
-- affiliation: Deutsches Zentrum f\xFCr Luft- und Raumfahrt (DLR), Institut f\xFC\
-    r Physik der Atmosph\xE4re, Oberpfaffenhofen, Germany
+- affiliation: Deutsches Zentrum für Luft- und Raumfahrt (DLR), Institut für Physik der Atmosphäre, Oberpfaffenhofen, Germany
   family-names: Schlund
   given-names: Manuel
   orcid: https://orcid.org/0000-0001-5251-0158
@@ -24,8 +23,7 @@ keywords:
 - CMIP
 license: Apache-2.0
 message: If you use this software, please cite it using the metadata from this file.
-title: Supplementary material for "Advanced climate model evaluation with ESMValTool
-  v2.11.0 using parallel, out-of-core, and distributed computing"
+title: Supplementary material for "Advanced climate model evaluation with ESMValTool v2.11.0 using parallel, out-of-core, and distributed computing"
 type: software
 url: https://github.com/schlunma/esmvaltool-dask-paper
-version: v2.0.0
+version: v2.0.1
